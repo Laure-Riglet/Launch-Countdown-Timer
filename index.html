@@ -12,6 +12,11 @@
 </head>
 
 <body>
+  <!-- <audio id="tick">
+    <source src="sounds/tick.ogg" type="audio/ogg">
+    <source src="sounds/tick.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio> -->
   <main>
     <div class="headline">
       <h1>We're launching soon</h1>
@@ -19,33 +24,35 @@
 
     <div class="countdown-timer">
 
-<!-- Carte unité-->
+      <!-- Carte unité-->
 
       <div class="time-unit-box">
         <div class="number-card">
-          <div class="up part">
-            <div class="outer">
-              <div class="inner">
-                <div class="content">
-                  <div class="big-number-half">
-                    <p class="big-number days"></p>
-                  </div>                  
+          <div class="flip-container day">
+            <div class="up part">
+              <div class="outer">
+                <div class="inner">
+                  <div class="content">
+                    <div class="big-number-half">
+                      <p class="big-number days"></p>
+                    </div>
+                  </div>
+                  <i class="bottom right"></i>
+                  <i class="bottom left"></i>
                 </div>
-                <i class="bottom right"></i>
-                <i class="bottom left"></i>
               </div>
             </div>
-          </div>
-          <div class="down part">
-            <div class="outer">
-              <div class="inner">
-                <div class="content">
-                  <div class="big-number-half">
-                    <p class="big-number days"></p>
-                  </div>  
+            <div class="down part">
+              <div class="outer">
+                <div class="inner">
+                  <div class="content">
+                    <div class="big-number-half">
+                      <p class="big-number days"></p>
+                    </div>
+                  </div>
+                  <i class="top left"></i>
+                  <i class="top right"></i>
                 </div>
-                <i class="top left"></i>
-                <i class="top right"></i>
               </div>
             </div>
           </div>
@@ -53,33 +60,35 @@
         <p class="text-unit">Days</p>
       </div>
 
-<!-- Fin carte unité-->
+      <!-- Fin carte unité-->
 
       <div class="time-unit-box">
         <div class="number-card">
-          <div class="up part">
-            <div class="outer">
-              <div class="inner">
-                <div class="content">
-                  <div class="big-number-half">
-                    <p class="big-number hours"></p>
-                  </div>                  
+          <div class="flip-container hou">
+            <div class="up part">
+              <div class="outer">
+                <div class="inner">
+                  <div class="content">
+                    <div class="big-number-half">
+                      <p class="big-number hours"></p>
+                    </div>
+                  </div>
+                  <i class="bottom right"></i>
+                  <i class="bottom left"></i>
                 </div>
-                <i class="bottom right"></i>
-                <i class="bottom left"></i>
               </div>
             </div>
-          </div>
-          <div class="down part">
-            <div class="outer">
-              <div class="inner">
-                <div class="content">
-                  <div class="big-number-half">
-                    <p class="big-number hours"></p>
-                  </div>  
+            <div class="down part">
+              <div class="outer">
+                <div class="inner">
+                  <div class="content">
+                    <div class="big-number-half">
+                      <p class="big-number hours"></p>
+                    </div>
+                  </div>
+                  <i class="top left"></i>
+                  <i class="top right"></i>
                 </div>
-                <i class="top left"></i>
-                <i class="top right"></i>
               </div>
             </div>
           </div>
@@ -88,29 +97,31 @@
       </div>
       <div class="time-unit-box">
         <div class="number-card">
-          <div class="up part">
-            <div class="outer">
-              <div class="inner">
-                <div class="content">
-                  <div class="big-number-half">
-                    <p class="big-number minutes"></p>
-                  </div>                  
+          <div class="flip-container min">
+            <div class="up part">
+              <div class="outer">
+                <div class="inner">
+                  <div class="content">
+                    <div class="big-number-half">
+                      <p class="big-number minutes"></p>
+                    </div>
+                  </div>
+                  <i class="bottom right"></i>
+                  <i class="bottom left"></i>
                 </div>
-                <i class="bottom right"></i>
-                <i class="bottom left"></i>
               </div>
             </div>
-          </div>
-          <div class="down part">
-            <div class="outer">
-              <div class="inner">
-                <div class="content">
-                  <div class="big-number-half">
-                    <p class="big-number minutes"></p>
-                  </div>  
+            <div class="down part">
+              <div class="outer">
+                <div class="inner">
+                  <div class="content">
+                    <div class="big-number-half">
+                      <p class="big-number minutes"></p>
+                    </div>
+                  </div>
+                  <i class="top left"></i>
+                  <i class="top right"></i>
                 </div>
-                <i class="top left"></i>
-                <i class="top right"></i>
               </div>
             </div>
           </div>
@@ -119,29 +130,31 @@
       </div>
       <div class="time-unit-box">
         <div class="number-card">
-          <div class="up part">
-            <div class="outer">
-              <div class="inner">
-                <div class="content">
-                  <div class="big-number-half">
-                    <p class="big-number seconds"></p>
-                  </div>                  
+          <div class="flip-container sec">
+            <div class="up part">
+              <div class="outer">
+                <div class="inner">
+                  <div class="content">
+                    <div class="big-number-half">
+                      <p class="big-number seconds"></p>
+                    </div>
+                  </div>
+                  <i class="bottom right"></i>
+                  <i class="bottom left"></i>
                 </div>
-                <i class="bottom right"></i>
-                <i class="bottom left"></i>
               </div>
             </div>
-          </div>
-          <div class="down part">
-            <div class="outer">
-              <div class="inner">
-                <div class="content">
-                  <div class="big-number-half">
-                    <p class="big-number seconds"></p>
-                  </div>  
+            <div class="down part">
+              <div class="outer">
+                <div class="inner">
+                  <div class="content">
+                    <div class="big-number-half">
+                      <p class="big-number seconds"></p>
+                    </div>
+                  </div>
+                  <i class="top left"></i>
+                  <i class="top right"></i>
                 </div>
-                <i class="top left"></i>
-                <i class="top right"></i>
               </div>
             </div>
           </div>
@@ -160,7 +173,7 @@
     </div>
     <div class="raiser">
       <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
         Coded by <a href="https://github.com/Laure-Riglet">L4ur3l3i</a>.
       </div>
     </div>

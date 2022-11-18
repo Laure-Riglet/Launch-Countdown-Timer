@@ -9,6 +9,9 @@ const timer = {
         setInterval(timer.displayHoursRemaining, 1000);
         setInterval(timer.displayMinutesRemaining, 1000);
         setInterval(timer.displaySecondsRemaining, 1000);
+
+        setInterval(timer.manageFlipping('sec'), 500);
+        /* setInterval(timer.playTicking, 1000); */
     },
 
     updateTimeRemaining: function () {
@@ -136,6 +139,26 @@ const timer = {
             secondsFigure[1].textContent = secondsToDisplay;
         }
     },
+
+    /* playTicking: function() {
+        let tick = document.getElementById('tick');
+        tick.play();
+    }, */
+
+    manageFlipping: function(timeUnit) {
+        timer.flipNumberCard(timeUnit);
+    },
+
+    flipNumberCard: function(timeUnit) {
+        var card = document.querySelector('.' + timeUnit);
+        console.log(timeUnit, card);
+        timer.toggleFlip(card);
+    },
+
+    toggleFlip: function(element) {
+        element.classList.toggle('flip');
+    },
+
 }
 document.addEventListener('DOMContentLoaded', timer.init);
 console.log('JS init OK !');
