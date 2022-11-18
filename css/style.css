@@ -51,7 +51,7 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: 4vh;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
 }
 
 .countdown-timer {
@@ -68,6 +68,7 @@ main {
     width: 66px;
     border-radius: 4px;
     padding: 0 0 4px 0;
+    position: relative; /* for cards rotation */
 }
 
 /* cartes fixes */
@@ -106,14 +107,14 @@ main {
     min-height: 33px;
 }
 
-.up .content {
+.up .content { /* à deplacer dans .up.card ? */
     border-radius: 4px 4px 0 0;
-    background-color: var(--bg-top-card);
+    background-color: var(--bg-top-card); 
 }
 
-.down .content {
+.down .content { /* à deplacer dans .down.card ? */
     border-radius: 0 0 4px 4px;
-    background-color: var(--bg-bottom-card);
+    background-color: var(--bg-bottom-card); 
 }
 
 .big-number-half {
@@ -148,6 +149,66 @@ p.text-unit {
     text-transform: uppercase;
     text-align: center;
     margin-top: 0.8rem;
+}
+
+/* Cards animation */
+
+.part {
+    height: 33px;
+    width: 66px;
+}
+
+.up.part {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* https://www.w3schools.com/csSref/tryit.php?filename=trycss3_transition-delay */
+
+.up.part.active {
+    z-index: 1;
+    transform-origin: center bottom;
+    transform: rotateX(-90deg);
+    transition: transform 0.5s ease-out 0.5s;
+}
+
+.up.part.inactive {
+    z-index: 0;
+}
+
+.down.part {
+    position: absolute;
+    top: 33px;
+    left: 0;
+}
+
+.down.part.active { /* not sure if active or inactive */
+    z-index: 1;
+    transform-origin: center top;
+    transform: rotateX(-90deg);
+}
+
+.down.part.active.moving {
+    transform: rotateX(0deg);
+    transition: transform 0.5s ease-in;
+}
+
+.down.part.inactive {
+    z-index: 0;
+    /* height: 33px; */
+    /* transform: rotateX(0deg); */
+    /* transition: height 0s linear 1s; */
+    /* transform-origin: center top;
+    transform: rotateX(-90deg); */
+    
+/* Voir test.css pour remplacer le :hover par une class .moving sur ce projet
+
+    /* transform-origin: center top;
+    transform: rotateX(0deg);
+    transition: transform 0.5s; */
+    /* transition-delay: 0.5s;
+    transition: transform 0.5s; */
 }
 
 /* Footer hills and social media links */
@@ -228,15 +289,39 @@ p.text-unit {
 
 /* Responsive */
 
-@media (min-width: 768px) {
+@media (min-width: 430px) {
+
+    main {
+        padding: 0 2.1rem;
+    }
 
     .headline {
-        margin-bottom: 11rem;
+        margin-bottom: 5rem;
     }
 
     h1 {
         font-size: 1.5rem;
         letter-spacing: 0.6rem;
+        line-height: 2rem;
+    }
+
+    .countdown-timer {
+        width: 85vw;
+    }
+
+    .time-unit-box {
+        transform: scale(1.3);
+    }
+
+    .footer-hills {
+        background-position: 0 0;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .headline {
+        margin-bottom: 11rem;
     }
 
     .countdown-timer {
@@ -245,10 +330,6 @@ p.text-unit {
 
     .time-unit-box {
         transform: scale(2.3);
-    }
-
-    .footer-hills {
-        background-position: 0 0;
     }
 
     .social-media-bar {

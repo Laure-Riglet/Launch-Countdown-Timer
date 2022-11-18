@@ -23,7 +23,8 @@
 
       <div class="time-unit-box">
         <div class="number-card">
-          <div class="up part">
+          <!-- start duplicate -->
+          <div class="up part active">
             <div class="outer">
               <div class="inner">
                 <div class="content">
@@ -36,7 +37,36 @@
               </div>
             </div>
           </div>
-          <div class="down part">
+          <!-- end duplicate -->
+          <!-- start duplicate -->
+          <div class="up part inactive">
+            <div class="outer">
+              <div class="inner">
+                <div class="content">
+                  <div class="big-number-half">
+                    <p class="big-number days"></p>
+                  </div>                  
+                </div>
+                <i class="bottom right"></i>
+                <i class="bottom left"></i>
+              </div>
+            </div>
+          </div>
+          <!-- end duplicate -->
+          <div class="down part active">
+            <div class="outer">
+              <div class="inner">
+                <div class="content">
+                  <div class="big-number-half">
+                    <p class="big-number days"></p>
+                  </div>  
+                </div>
+                <i class="top left"></i>
+                <i class="top right"></i>
+              </div>
+            </div>
+          </div>
+          <div class="down part inactive">
             <div class="outer">
               <div class="inner">
                 <div class="content">
@@ -57,7 +87,7 @@
 
       <div class="time-unit-box">
         <div class="number-card">
-          <div class="up part">
+          <div class="up part active">
             <div class="outer">
               <div class="inner">
                 <div class="content">
@@ -70,7 +100,33 @@
               </div>
             </div>
           </div>
-          <div class="down part">
+          <div class="up part inactive">
+            <div class="outer">
+              <div class="inner">
+                <div class="content">
+                  <div class="big-number-half">
+                    <p class="big-number hours"></p>
+                  </div>                  
+                </div>
+                <i class="bottom right"></i>
+                <i class="bottom left"></i>
+              </div>
+            </div>
+          </div>
+          <div class="down part active">
+            <div class="outer">
+              <div class="inner">
+                <div class="content">
+                  <div class="big-number-half">
+                    <p class="big-number hours"></p>
+                  </div>  
+                </div>
+                <i class="top left"></i>
+                <i class="top right"></i>
+              </div>
+            </div>
+          </div>
+          <div class="down part inactive">
             <div class="outer">
               <div class="inner">
                 <div class="content">
@@ -88,7 +144,7 @@
       </div>
       <div class="time-unit-box">
         <div class="number-card">
-          <div class="up part">
+          <div class="up part active">
             <div class="outer">
               <div class="inner">
                 <div class="content">
@@ -101,7 +157,33 @@
               </div>
             </div>
           </div>
-          <div class="down part">
+          <div class="up part inactive">
+            <div class="outer">
+              <div class="inner">
+                <div class="content">
+                  <div class="big-number-half">
+                    <p class="big-number minutes"></p>
+                  </div>                  
+                </div>
+                <i class="bottom right"></i>
+                <i class="bottom left"></i>
+              </div>
+            </div>
+          </div>
+          <div class="down part active">
+            <div class="outer">
+              <div class="inner">
+                <div class="content">
+                  <div class="big-number-half">
+                    <p class="big-number minutes"></p>
+                  </div>  
+                </div>
+                <i class="top left"></i>
+                <i class="top right"></i>
+              </div>
+            </div>
+          </div>
+          <div class="down part inactive">
             <div class="outer">
               <div class="inner">
                 <div class="content">
@@ -118,8 +200,9 @@
         <p class="text-unit">Minutes</p>
       </div>
       <div class="time-unit-box">
-        <div class="number-card">
-          <div class="up part">
+        <div class="number-card sec">
+          <!-- start up active -->
+          <div class="up part active">
             <div class="outer">
               <div class="inner">
                 <div class="content">
@@ -132,7 +215,24 @@
               </div>
             </div>
           </div>
-          <div class="down part">
+          <!-- end up active -->
+          <!-- start up inactive -->
+          <div class="up part inactive">
+            <div class="outer">
+              <div class="inner">
+                <div class="content">
+                  <div class="big-number-half">
+                    <p class="big-number seconds"></p>
+                  </div>                  
+                </div>
+                <i class="bottom right"></i>
+                <i class="bottom left"></i>
+              </div>
+            </div>
+          </div>
+          <!-- end up inactive -->
+          <!-- start down active -->
+          <div class="down part active">
             <div class="outer">
               <div class="inner">
                 <div class="content">
@@ -145,6 +245,22 @@
               </div>
             </div>
           </div>
+          <!-- end down active -->
+          <!-- start down inactive -->
+          <div class="down part inactive moving">
+            <div class="outer">
+              <div class="inner">
+                <div class="content">
+                  <div class="big-number-half">
+                    <p class="big-number seconds"></p>
+                  </div>  
+                </div>
+                <i class="top left"></i>
+                <i class="top right"></i>
+              </div>
+            </div>
+          </div>
+          <!-- end down inactive -->
         </div>
         <p class="text-unit">Seconds</p>
       </div>
