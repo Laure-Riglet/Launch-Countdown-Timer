@@ -14,6 +14,7 @@ const timer = {
 
         setInterval(timer.swapCards, 1000);
         setInterval(timer.waitThenMoveActiveDownCards, 500);
+        setInterval(timer.exchangeStartEndDownInactCards, 2000);
 
     },
 
@@ -130,33 +131,55 @@ const timer = {
 
     displaySecondsRemaining: function () {
         
-        // on crée une variable qui récupère le nombre courant de secondes restantes 
-        // à afficher
-        let secondsToDisplayUpInact = timer.getSecondsRemaining();
+        // on crée les variables qui récupèrent le nombre courant de secondes restantes 
+        // à afficher sur les différentes demies cartes.
+
+        // la 1ère correspond à la demie carte qui reste fixe en haut et nous servira de base 
+        // pour les autres
+        let secondsToDisplayUpInact = 1; //timer.getSecondsRemaining();
         
-        // on cree également les variables des cartes qui seront en attente 
-        // sur la partie haute et qui subsisteront sur la partie basse
-        let secondsToDisplayUpAct = secondsToDisplayUpInact - 1;
-        let secondsToDisplayDownAct = secondsToDisplayUpInact; // + 10 aucune influence...
-        let secondsToDisplayDownActMove = secondsToDisplayUpInact - 2;
+        // la 2ème correspond à la demie carte qui s'en va sur la partie haute         
+        let secondsToDisplayUpAct = 0; //secondsToDisplayUpInact - 1;
+
+        // la 3ème correspond à la demie carte qui s'affiche sur la partie basse 
+        let secondsToDisplayDownAct = 1; //secondsToDisplayUpInact - 1;
+
+        // la 4ème correspond à la demie carte qui est déjà affichée sur la partie basse
+        let secondsToDisplayDownInactStart = 2; //secondsToDisplayUpInact;
+
+        // la 5ème correspond à la demie carte qui devra être affichée sur la partie basse 
+        // au tour suivant
+        let secondsToDisplayDownInactEnd = 3; //secondsToDisplayUpInact - 1;
 
         // on les converti en string afin de pouvoir les mettre en forme plus bas
         secondsToDisplayUpAct = secondsToDisplayUpAct.toString();
         secondsToDisplayUpInact = secondsToDisplayUpInact.toString();
+
+        secondsToDisplayDownInactStart = secondsToDisplayDownInactStart.toString();
         secondsToDisplayDownAct =  secondsToDisplayDownAct.toString();
-        secondsToDisplayDownActMove = secondsToDisplayDownActMove.toString();
+        secondsToDisplayDownInactEnd = secondsToDisplayDownInactEnd.toString();
         
-        // on selectionne les 2 paragraphes qui contiennent chacun la moitié supérieure
+        // on selectionne les emplacements de tous les paragraphes qui vont contenir 
+        // les nombres de secondes restantes
+
+        let secondsUpInactFigurePlace = document.querySelector('.up.inactive .big-number.seconds');
+        let secondsUpActFigurePlace = document.querySelector('.up.active .big-number.seconds');
+        
+        let secondsDownInactStartFigurePlace = document.querySelector('.down.inactive.start .big-number.seconds');
+        let secondsDownActFigurePlace = document.querySelector('.down.active .big-number.seconds');
+        let secondsDownInactEndFigurePlace = document.querySelector('.down.inactive.end .big-number.seconds');
+
+        /* // on selectionne les 2 paragraphes qui contiennent chacun la moitié supérieure
         // ou inférieure du nombre courant de secondes restantes à afficher
         let secondsUpActFigureCurrentPlace = document.querySelector('.up.active .big-number.seconds');
-        let secondsDownActFigureCurrentPlace = document.querySelector('.down.active :not(.moving) .big-number.seconds');
+        let secondsDownActFigureCurrentPlace = document.querySelector('.down.inactive .big-number.seconds');
 
         // on selectionne respectivement les 2 paragraphes qui contiennent pour 
         // la moitié supérieure le nombre à venir de secondes restantes à afficher
         // ou pour l'inférieure le nombre precédant de secondes restantes à afficher
         let secondsUpInactFigurePlace = document.querySelector('.up.inactive .big-number.seconds');
         let secondsDownActMovFigurePlace = document.querySelector('.down.active.moving .big-number.seconds');
-
+ */
         /* // si le nombre déjà affiché dans les 2 paragraphes est différent de celui renvoyé 
         // par la fonction
         if (secondsFigure[0].textContent != secondsToDisplay) {} */
@@ -168,38 +191,38 @@ const timer = {
         if (secondsToDisplayUpInact.length < 2) {
             secondsToDisplayUpInact = '0' + secondsToDisplayUpInact;
         }
+        if (secondsToDisplayDownInactStart.length < 2) {
+            secondsToDisplayDownInactStart = '0' + secondsToDisplayDownInactStart;
+        }
         if (secondsToDisplayDownAct.length < 2) {
             secondsToDisplayDownAct = '0' + secondsToDisplayDownAct;
         }
-        if (secondsToDisplayDownActMove.length < 2) {
-            secondsToDisplayDownActMove = '0' + secondsToDisplayDownActMove;
+        if (secondsToDisplayDownInactEnd.length < 2) {
+            secondsToDisplayDownInactEnd = '0' + secondsToDisplayDownInactEnd;
         }
         // on injecte le nombre de secondes entières jusqu'à la date et l'heure visées
-        secondsUpActFigureCurrentPlace.textContent = secondsToDisplayUpAct;
-        secondsDownActFigureCurrentPlace.textContent = 'x'; // secondsToDisplayDownAct;
+        secondsUpActFigurePlace.textContent = secondsToDisplayUpAct;
         secondsUpInactFigurePlace.textContent = secondsToDisplayUpInact;
-        secondsDownActMovFigurePlace.textContent = secondsToDisplayDownActMove;
-        
-    },
 
-    displayTimeUnitsRemaining: function(unit, upOrDown, activeOrInactive) {
-
+        secondsDownInactStartFigurePlace.textContent = secondsToDisplayDownInactStart;
+        secondsDownActFigurePlace.textContent = secondsToDisplayDownAct;
+        secondsDownInactEndFigurePlace.textContent = secondsToDisplayDownInactEnd;
     },
 
     // Flipping cards management
 
-    toggleActiveInactive: function (halfcard, active, inactive) {
+    toggleActiveInactive: function (halfCard, active, inactive) {
         // on active les demies cartes inactives et on inactive les actives
-        halfcard.classList.toggle(active);
-        halfcard.classList.toggle(inactive);        
+        halfCard.classList.toggle(active);
+        halfCard.classList.toggle(inactive);        
     },
 
     swapCards: function() {
         // on selectionne toutes les demies cartes
         let halfCards = document.querySelectorAll('.part')
         // on boucle la fonction qui active/inactive sur elles
-        for (let halfcard of halfCards) {
-            timer.toggleActiveInactive(halfcard, 'active', 'inactive');
+        for (let halfCard of halfCards) {
+            timer.toggleActiveInactive(halfCard, 'active', 'inactive');
         }
     },
 
@@ -208,14 +231,28 @@ const timer = {
     },
 
     waitThenMoveActiveDownCards: function() {
-        // on selectionne toutes les demies cartes
+        // on selectionne les demies cartes concernées
         let movingDownCards = document.querySelectorAll('.down.part.active')
         // on boucle la fonction qui active/inactive sur elles
         for (let movingDownCard of movingDownCards) {
             timer.toggleMoveActiveDownCard(movingDownCard);
         }
-    }
+    },
 
+    toggleStartEnd: function(halfCard, start, end) {
+        // on recule les demies cartes en avant et on avance celles de derrière
+        halfCard.classList.toggle(start);
+        halfCard.classList.toggle(end);
+    },
+
+    exchangeStartEndDownInactCards: function() {
+        // on selectionne les demies cartes concernées
+        let lastHalfCards = document.querySelectorAll('.down.part.inactive');
+        // on boucle la fonction qui sart/end sur elles
+        for (let lastHalfCard of lastHalfCards) {
+            timer.toggleStartEnd(lastHalfCard, 'start', 'end');
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', timer.init);

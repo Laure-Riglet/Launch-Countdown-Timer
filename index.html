@@ -199,6 +199,7 @@
         </div>
         <p class="text-unit">Minutes</p>
       </div>
+<!--******************** SECONDS ********************-->
       <div class="time-unit-box">
         <div class="number-card sec">
           <!-- start up active -->
@@ -232,7 +233,7 @@
           </div>
           <!-- end up inactive -->
           <!-- start down active -->
-          <div class="down part active">
+          <div class="down part active start">
             <div class="outer">
               <div class="inner">
                 <div class="content">
@@ -246,8 +247,8 @@
             </div>
           </div>
           <!-- end down active -->
-          <!-- start down inactive -->
-          <div class="down part inactive moving">
+          <!-- start down active duplicate -->
+          <div class="down part active end">
             <div class="outer">
               <div class="inner">
                 <div class="content">
@@ -260,7 +261,39 @@
               </div>
             </div>
           </div>
-          <!-- end down inactive -->
+          <!-- end down active duplicate -->
+          <!-- start down inactive start -->
+          <div class="down part inactive moving start">
+            <div class="outer">
+              <div class="inner">
+                <div class="content">
+                  <div class="big-number-half">
+                    <p class="big-number seconds"></p>
+                  </div>  
+                </div>
+                <i class="top left"></i>
+                <i class="top right"></i>
+              </div>
+            </div>
+          </div>
+          <!-- end down inactive start -->
+          <!-- start down inactive end -->
+          <div class="down part inactive moving end">
+            <div class="outer">
+              <div class="inner">
+                <div class="content">
+                  <div class="big-number-half">
+                    <p class="big-number seconds"></p>
+                  </div>  
+                </div>
+                <i class="top left"></i>
+                <i class="top right"></i>
+              </div>
+            </div>
+          </div>
+          <!-- end down inactive end -->
+
+<!--********************** FIN **********************-->
         </div>
         <p class="text-unit">Seconds</p>
       </div>
